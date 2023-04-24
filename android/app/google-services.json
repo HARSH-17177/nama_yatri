@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "875666476924",
+    "project_id": "yatri-app-96a61",
+    "storage_bucket": "yatri-app-96a61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875666476924:android:044c1f7d43b1217b1cdef9",
+        "android_client_info": {
+          "package_name": "com.example.yatri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875666476924-94vqece9oa2innjpam85hl6441mkjfem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHIjE2zdh3hLvj1SP-34l-tCRn_2T-9uk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875666476924-94vqece9oa2innjpam85hl6441mkjfem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
