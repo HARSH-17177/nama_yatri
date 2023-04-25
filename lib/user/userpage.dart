@@ -55,6 +55,7 @@ class _UserPageState extends State<UserPage> {
   String? droplat;
   String? droplong;
   String? destaddress;
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,13 +86,23 @@ class _UserPageState extends State<UserPage> {
                     decoration:
                         const InputDecoration(hintText: "drop Location"),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                      ),
                       onPressed: () async {
+                        setState(() {
+                          loading = true;
+                        });
                         Position? x = await _determinePosition();
                         // if (x != null) {
                         //   upload(x.latitude.toString(), x.longitude.toString(),
                         //       droplat.toString(), droplong.toString());
                         // }
+                        loading = false;
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -109,6 +120,12 @@ class _UserPageState extends State<UserPage> {
               ),
             ),
           ),
+          if (loading) Column(
+            children: const [
+              SizedBox(height: 20,),
+              CircularProgressIndicator.adaptive(),
+            ],
+          ) else Container(),
           Expanded(
             child: ListView.builder(
               itemCount: places.length,
@@ -124,6 +141,7 @@ class _UserPageState extends State<UserPage> {
                       droplat = places[index]['lat'];
                       droplong = places[index]['lon'];
                       destaddress = places[index]['display_name'];
+                      drop.text = places[index]['display_name'];
                       places.clear();
                     });
                   },

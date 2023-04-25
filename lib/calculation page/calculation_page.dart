@@ -48,11 +48,12 @@ class _CalculationsState extends State<Calculations> {
         x.add(Captains(
             name: items[i]['name'],
             phone: items[i]['phone'],
-            distance: GeolocatorPlatform.instance.distanceBetween(
-                widget.currentlat!,
-                widget.currentlon!,
-                items[i]['driverlat'],
-                items[i]['driverlong'])));
+            distance: (GeolocatorPlatform.instance.distanceBetween(
+                    widget.currentlat!,
+                    widget.currentlon!,
+                    items[i]['driverlat'],
+                    items[i]['driverlong'])) /
+                1000));
       }
     }
   }
@@ -106,7 +107,7 @@ class _CalculationsState extends State<Calculations> {
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
-                            Text("${thisItems.distance!.toStringAsFixed(2)} Km",
+                            Text("${thisItems.distance!.toStringAsFixed(3)} Km",
                                 style: const TextStyle(
                                     fontSize: 18, color: Colors.black)),
                             const Divider(

@@ -20,6 +20,7 @@ class _DriverLiveState extends State<DriverLive> {
   Position? currentposition;
   String? currentAddress;
   List<String> x = [];
+  bool loading = false;
   var whatsapp = TextEditingController();
   String? user;
   late final DocumentReference _reference;
@@ -93,17 +94,22 @@ class _DriverLiveState extends State<DriverLive> {
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.green),
                     onPressed: () async {
+                      setState(() {
+                        loading = true;
+                      });
                       Position? x = await _determinePosition();
                       if (x != null) {
                         upload(whatsapp.text);
                       }
                       whatsapp.clear();
+                      loading = false;
                       navigation();
                     },
                     child: const Text("Submit")),
               ]),
             ),
           ),
+          (loading) ? const CircularProgressIndicator.adaptive() : Container(),
         ],
       ),
     );

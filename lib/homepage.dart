@@ -29,8 +29,8 @@ class Homepage extends StatelessWidget {
           children: [
             ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.amber,
-                ),
+                    backgroundColor: Colors.amber,
+                    minimumSize: const Size(340, 140)),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -38,11 +38,21 @@ class Homepage extends StatelessWidget {
                         builder: (context) => const DriverLive(),
                       ));
                 },
-                icon: const Icon(Icons.electric_rickshaw),
+                icon: const Icon(
+                  Icons.electric_rickshaw,
+                  color: Colors.black,
+                  size: 45,
+                ),
                 label: const Text(
                   "Proceed as Captain",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 )),
+            const SizedBox(
+              height: 20,
+            ),
             ElevatedButton.icon(
                 onPressed: () {
                   Navigator.push(
@@ -51,8 +61,13 @@ class Homepage extends StatelessWidget {
                         builder: (context) => const UserPage(),
                       ));
                 },
-                style: ElevatedButton.styleFrom(primary: Colors.green[800]),
-                icon: const Icon(Icons.man),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green[800],
+                    minimumSize: const Size(340, 140)),
+                icon: const Icon(
+                  Icons.man,
+                  size: 50,
+                ),
                 label: const Text(
                   "Proceed as User",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
