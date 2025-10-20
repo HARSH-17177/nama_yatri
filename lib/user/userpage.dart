@@ -20,7 +20,7 @@ class _UserPageState extends State<UserPage> {
   List<dynamic> places = [];
   void placeAutocomplete(String query) async {
     final response = await http.get(Uri.parse(
-        "https://api.locationiq.com/v1/autocomplete?key=pk.f2b19a8bebee17bd31acb4b1b92777d5&q=$query"));
+        "your key"));
     // var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
       setState(() {
